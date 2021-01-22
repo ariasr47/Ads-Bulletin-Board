@@ -5,11 +5,10 @@
   "version": "0.1.0",
   "author": "Rodrigo Arias",
   "dependencies": {
+    "@fontsource/roboto": "^4.1.0",
     "@material-ui/core": "latest",
-    "@material-ui/styles": "latest",
     "@material-ui/icons": "latest",
-    "semantic-ui-css": "latest",
-    "semantic-ui-react": "^2.0.3",
+    "@material-ui/styles": "latest",
     "@react-icons/all-files": "^4.1.0",
     "gatsby": "latest",
     "gatsby-image": "^2.5.0",
@@ -26,7 +25,9 @@
     "prop-types": "^15.7.2",
     "react": "latest",
     "react-dom": "latest",
-    "react-helmet": "latest"
+    "react-helmet": "latest",
+    "semantic-ui-css": "latest",
+    "semantic-ui-react": "^2.0.3"
   },
   "devDependencies": {
     "prettier": "2.2.1"

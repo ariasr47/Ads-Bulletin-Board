@@ -3,8 +3,7 @@ import React from "react";
 import {graphql} from "gatsby";
 import BulletinBoard from "../components/BulletinBoard";
 
-const DESCTemplate = ({data, pageContext}) => {
-    console.log(pageContext.name)
+const AdTemplate = ({data}) => {
     const props = data.allStrapiAd.nodes;
     return (
         <BulletinBoard>
@@ -14,8 +13,8 @@ const DESCTemplate = ({data, pageContext}) => {
 }
 
 export const query = graphql`
-    query MyQuery2($limit: Int!, $skip: Int!) {
-        allStrapiAd(limit: $limit, skip: $skip, sort: {fields: price, order: DESC}) {
+    query MyQuery1 {
+        allStrapiAd {
             nodes {
                 id
                 title
@@ -25,4 +24,4 @@ export const query = graphql`
         }
     }
 `
-export default DESCTemplate;
+export default AdTemplate;

@@ -5,15 +5,7 @@ import FormCard from "./FormCard"
 import FilterBar from "./FilterBar";
 import {Link} from "gatsby";
 
-const PrevNext = () => {
 
-    return (
-        <Grid container>
-            <Button variant={"outlined"} color={"secondary"}>Prev</Button>
-            <Link to={'/ASC/2'}><Button variant={"outlined"} color={"secondary"}>Next</Button></Link>
-        </Grid>
-    )
-}
 
 export default function BulletinBoard({children}) {
 
@@ -32,13 +24,16 @@ export default function BulletinBoard({children}) {
                     })
                 }
             </Grid>
-            <Grid item container spacing={1} direction="row">
+            <Grid item container spacing={2} direction="row">
                 <Grid item>
-                    <PrevNext/>
+                    <Link to={'#'}>
+                        <Button variant={"outlined"} color={"secondary"}>
+                            Prev
+                        </Button>
+                    </Link>
                 </Grid>
             </Grid>
         </Grid>
     )
-
 }
 

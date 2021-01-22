@@ -53,7 +53,7 @@ const FormFieldControl = () => (
             id='form-button-control-public'
             control={Button}
             content='Confirm'
-            label='Label with htmlFor'
+            label='Submit'
         />
     </Form>
 )

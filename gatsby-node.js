@@ -26,8 +26,8 @@ exports.createPages = async function ({actions, graphql}) {
         console.log(postsPerPage)
         for (let i = 0; i < numPages; i++) {
             actions.createPage({
-                path: `/ASC/${i + 1}/`,
-                component: require.resolve("./src/templates/ASC-Ads.js"),
+                path: `/Ads/`,
+                component: require.resolve("./src/templates/Ads.js"),
                 context: {
                     limit: postsPerPage,
                     skip: i * postsPerPage,
@@ -37,18 +37,6 @@ exports.createPages = async function ({actions, graphql}) {
                     nextPage: i + 2
                 },
             });
-            actions.createPage({
-                path: `/DESC/${i + 1}/`,
-                component: require.resolve("./src/templates/DESC-Ads.js"),
-                context: {
-                    limit: postsPerPage,
-                    skip: i * postsPerPage,
-                    numPages: numPages,
-                    currentPage: i + 1,
-                    prevPage: i,
-                    nextPage: i + 2
-                },
-            })
         }
     }
 
