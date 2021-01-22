@@ -16,9 +16,9 @@ export const query = graphql`
     query AdTemplate($id: String!){
         strapiAd(id: {eq: $id}) {
             id
-            Title
-            Price
-            Description
+            title
+            price
+            description
         }
     }
 `

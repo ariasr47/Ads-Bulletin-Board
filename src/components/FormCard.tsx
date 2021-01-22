@@ -53,12 +53,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 type CardProps = {
     id: string;
-    Title: string;
-    Price: number;
-    Description: string;
+    title: string;
+    price: number;
+    description: string;
 }
 
-export default function FormCard({id, Title, Price, Description}: CardProps) {
+export default function FormCard({id, title, price, description}: CardProps) {
     console.log("Rendering <FormCard>");
     const classes = useStyles();
 
@@ -70,13 +70,13 @@ export default function FormCard({id, Title, Price, Description}: CardProps) {
         <Card className={classes.root} onClick={handleClick}>
             <Paper className={classes.cardOverlay}>
                 <CardHeader
-                    avatar={<Chip color="primary" icon={<AttachMoneyRoundedIcon/>} label={Price}/>}
+                    avatar={<Chip color="primary" icon={<AttachMoneyRoundedIcon/>} label={price}/>}
                     action={
                         <IconButton aria-label="settings">
                             <MoreVertTwoToneIcon color="primary"/>
                         </IconButton>
                     }
-                    title={Title}
+                    title={title}
                     titleTypographyProps={{noWrap: true, className: classes.Title}}
                     subheader={"Electronics"}
                 />
@@ -87,7 +87,7 @@ export default function FormCard({id, Title, Price, Description}: CardProps) {
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" className={classes.textArea}>
-                        {Description}
+                        {description}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>

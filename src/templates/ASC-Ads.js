@@ -15,12 +15,12 @@ const ASCTemplate = ({data, pageContext}) => {
 
 export const query = graphql`
     query MyQuery1($limit: Int!, $skip: Int!) {
-        allStrapiAd(limit: $limit, skip: $skip, sort: {fields: Price, order: ASC}) {
+        allStrapiAd(limit: $limit, skip: $skip, sort: {fields: price, order: ASC}) {
             nodes {
                 id
-                Title
-                Price
-                Description
+                title
+                price
+                description
             }
         }
     }
