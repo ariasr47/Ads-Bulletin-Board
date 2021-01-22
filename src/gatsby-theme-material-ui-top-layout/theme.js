@@ -1,11 +1,4 @@
-// @ts-ignore
-import React from 'react';
-import {createMuiTheme, createStyles, makeStyles, Theme, ThemeProvider} from '@material-ui/core/styles';
-import NavBar from './NavBar';
-import Drawer from './Drawer';
-import Content from "./Content";
-import {CssBaseline} from "@material-ui/core";
-
+import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
     palette: {
@@ -39,29 +32,4 @@ const theme = createMuiTheme({
     },
 });
 
-
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            display: 'flex',
-        },
-    }),
-);
-
-export default function ({children}) {
-    console.log("Rendering <Layout>");
-    const classes = useStyles();
-
-    return (
-        <div className={classes.root}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline/>
-                <NavBar/>
-                <Drawer/>
-                <Content>
-                    {children}
-                </Content>
-            </ThemeProvider>
-        </div>
-    )
-}
+export default theme;

@@ -1,6 +1,6 @@
 // @ts-ignore
 import React from 'react';
-import {makeStyles, Theme} from '@material-ui/core/styles';
+import {makeStyles, Theme, withTheme, useTheme} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -40,14 +40,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     Title: {
         width: 125,
     },
-    avatar: {
-        backgroundColor: theme.palette.primary.main,
-    },
     cardOverlay: {
         position: "relative",
         zIndex: 2,
-        backgroundColor: "rgba(187, 134, 252, 0.05)",
         flexGrow: 1,
+        backgroundColor: "rgba(187, 134, 252, 0.05)"
     },
 }));
 
@@ -58,7 +55,8 @@ type CardProps = {
     description: string;
 }
 
-export default function FormCard({id, title, price, description}: CardProps) {
+const FormCard = ({id, title, price, description}: CardProps) => {
+
     console.log("Rendering <FormCard>");
     const classes = useStyles();
 
@@ -67,6 +65,7 @@ export default function FormCard({id, title, price, description}: CardProps) {
     }
 
     return (
+        
         <Card className={classes.root} onClick={handleClick}>
             <Paper className={classes.cardOverlay}>
                 <CardHeader
@@ -102,3 +101,5 @@ export default function FormCard({id, title, price, description}: CardProps) {
         </Card>
     )
 }
+
+export default FormCard;

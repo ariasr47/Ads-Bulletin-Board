@@ -1,14 +1,14 @@
 // @ts-ignore
 import React, {useEffect, useState} from "react"
 import {Button, Grid} from "@material-ui/core"
+import {withTheme} from "@material-ui/styles";
 import FormCard from "./FormCard"
 import FilterBar from "./FilterBar";
 import {Link} from "gatsby";
 
 
 
-export default function BulletinBoard({children}) {
-
+const BulletinBoard = ({children}) => {
 
     return (
         <Grid container={true} spacing={1} direction={"column"}>
@@ -37,3 +37,4 @@ export default function BulletinBoard({children}) {
     )
 }
 
+export default BulletinBoard;

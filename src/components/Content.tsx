@@ -1,7 +1,8 @@
 // @ts-ignore
 import React from 'react';
 import Toolbar from "@material-ui/core/Toolbar";
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import Box from "@material-ui/core/Box"
+import {createStyles, makeStyles, Theme, withTheme} from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -13,12 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-export default function Content({children}) {
+const Content = ({children}) => {
     const classes = useStyles();
     return (
-        <main className={classes.root}>
+        <Box flexGrow={1}>
             <Toolbar/>
             {children}
-        </main>
+        </Box>
     )
 }
+
+export default Content;

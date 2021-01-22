@@ -4,10 +4,10 @@ import {graphql} from "gatsby";
 import BulletinBoard from "../components/BulletinBoard";
 
 const AdTemplate = ({data}) => {
-    const props = data.allStrapiAd.nodes;
+    const children = data.allStrapiAd.nodes;
     return (
         <BulletinBoard>
-            {props}
+            {children}
         </BulletinBoard>
     )
 }
