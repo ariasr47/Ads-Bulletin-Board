@@ -11,7 +11,7 @@ import {Link} from "gatsby";
 const BulletinBoard = ({children}) => {
 
     return (
-        <Grid container={true} spacing={1} direction={"column"}>
+        <Grid container spacing={2} direction={"column"}>
             <FilterBar/>
             <Grid item container spacing={1} direction="row">
                 {

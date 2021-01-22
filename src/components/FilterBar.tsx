@@ -50,11 +50,11 @@ const NumericalSort = (props) => {
     )
 }
 
-const FilterBar = React.memo(props => {
+const FilterBar = (props) => {
     const classes = useStyles();
 
     return (
-        <Grid item xs={12}>
+        <Grid item xs={12} spacing={1}>
             <Box className={classes.root}>
                 <ButtonGroup aria-label="primary button group">
                     <IconButton aria-label="view list" disabled={true}>
@@ -81,6 +81,6 @@ const FilterBar = React.memo(props => {
             </Box>
         </Grid>
     )
-})
+}
 
 export default FilterBar;
