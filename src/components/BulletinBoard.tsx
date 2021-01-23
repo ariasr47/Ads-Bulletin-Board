@@ -1,31 +1,33 @@
 import React from "react"
-import { Button, Grid } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
 import FormCard from "./FormCard"
 import FilterBar from "./FilterBar"
-import { Link } from "gatsby"
+import Pagination from "./Pagination"
 
 const BulletinBoard = ({ children }) => {
   return (
     <Grid container spacing={1} direction={"column"}>
       <FilterBar />
       <Grid item container spacing={1} direction="row">
-        {children.map((props, index) => {
-          return (
-            <Grid item>
-              <FormCard {...props} key={index} />
-            </Grid>
-          )
-        })}
+        {children.map(
+          (
+            props: {
+              id: string
+              title: string
+              price: number
+              description: string
+            },
+            index: React.ReactText
+          ) => {
+            return (
+              <Grid item>
+                <FormCard {...props} key={index} />
+              </Grid>
+            )
+          }
+        )}
       </Grid>
-      <Grid item container spacing={1} direction="row">
-        <Grid item>
-          <Link to={"#"}>
-            <Button variant={"outlined"} color={"secondary"}>
-              Prev
-            </Button>
-          </Link>
-        </Grid>
-      </Grid>
+      <Pagination />
     </Grid>
   )
 }

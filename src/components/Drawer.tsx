@@ -23,18 +23,17 @@ const drawerWidth = 240
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    drawer: {
       width: drawerWidth,
-      display: "flex",
-      position: "relative",
+      flexShrink: 0,
+    },
+    drawerPaper: {
+      width: drawerWidth,
     },
     drawerContainer: {
       overflow: "auto",
     },
     drawerOverlay: {
-      display: "flex",
-      position: "fixed",
-      flexShrink: 1,
       height: "100%",
       zIndex: theme.zIndex.drawer + 1,
       backgroundColor: "rgba(187, 134, 252, 0.09)",
@@ -47,7 +46,13 @@ export default function MyDrawer() {
   const classes = useStyles()
 
   return (
-    <Drawer className={classes.root} variant="permanent">
+    <Drawer
+      className={classes.drawer}
+      variant="permanent"
+      classes={{
+        paper: classes.drawerPaper,
+      }}
+    >
       <Paper className={classes.drawerOverlay} elevation={4}>
         <Toolbar />
         <div className={classes.drawerContainer}>

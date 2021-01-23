@@ -5,7 +5,6 @@ module.exports = {
     author: `@ariasr47`,
   },
   plugins: [
-    `gatsby-theme-material-ui`,
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
     {
@@ -27,11 +26,9 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: "https://sheltered-taiga-32855.herokuapp.com",
-        contentTypes: [
-          "ad",
-        ],
+        contentTypes: ["ad"],
         queryLimit: 1000,
       },
-    }
+    },
   ],
 }
