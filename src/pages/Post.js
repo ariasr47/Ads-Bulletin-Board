@@ -1,6 +1,5 @@
 // @ts-ignore
 import React from "react"
-import "semantic-ui-css/semantic.min.css"
 import { Form, Input, Select, TextArea, Button } from "semantic-ui-react"
 
 const Categories = [

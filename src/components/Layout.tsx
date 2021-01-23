@@ -7,6 +7,9 @@ import { ThemeProvider, makeStyles, Theme } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 
 const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    display: "flex",
+  },
   content: {
     padding: theme.spacing(2),
     height: "100vh",
@@ -20,7 +23,7 @@ export default function TopLayout({ children, theme }) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box display="flex">
+      <Box className={classes.root}>
         <NavBar />
         <Drawer />
         <main className={classes.content}>

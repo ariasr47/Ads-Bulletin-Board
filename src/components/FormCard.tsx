@@ -14,7 +14,7 @@ import ShareTwoToneIcon from "@material-ui/icons/ShareTwoTone"
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone"
 import AttachMoneyRoundedIcon from "@material-ui/icons/AttachMoneyRounded"
 import Paper from "@material-ui/core/Paper"
-import { Link } from "gatsby"
+import { navigate } from "gatsby"
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -62,58 +62,53 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
 
   const handleClick = (e: React.MouseEvent) => {
     const path: string = window.location.pathname
-
-    if (path != "/Ads") {
-      e.preventDefault()
-    }
+    if (path != `/Ads/${id}`) navigate(`/Ads/${id}`)
   }
 
   return (
-    <Link to={`${id}`} onClick={handleClick}>
-      <Card className={classes.root}>
-        <Paper className={classes.cardOverlay}>
-          <CardHeader
-            avatar={
-              <Chip
-                color="primary"
-                icon={<AttachMoneyRoundedIcon />}
-                label={price}
-              />
-            }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertTwoToneIcon color="primary" />
-              </IconButton>
-            }
-            title={title}
-            titleTypographyProps={{ noWrap: true, className: classes.Title }}
-            subheader={category}
-          />
-          <CardMedia
-            className={classes.media}
-            image="/images/placeholder-image.png"
-            title=""
-          />
-          <CardContent>
-            <Typography
-              variant="body2"
-              color="textSecondary"
-              className={classes.textArea}
-            >
-              {description}
-            </Typography>
-          </CardContent>
-          <CardActions disableSpacing>
-            <IconButton aria-label="add to favorites">
-              <FavoriteTwoToneIcon color="primary" />
+    <Card className={classes.root} onClick={handleClick}>
+      <Paper className={classes.cardOverlay}>
+        <CardHeader
+          avatar={
+            <Chip
+              color="primary"
+              icon={<AttachMoneyRoundedIcon />}
+              label={price}
+            />
+          }
+          action={
+            <IconButton aria-label="settings">
+              <MoreVertTwoToneIcon color="primary" />
             </IconButton>
-            <IconButton aria-label="share">
-              <ShareTwoToneIcon color="primary" />
-            </IconButton>
-          </CardActions>
-        </Paper>
-      </Card>
-    </Link>
+          }
+          title={title}
+          titleTypographyProps={{ noWrap: true, className: classes.Title }}
+          subheader={category}
+        />
+        <CardMedia
+          className={classes.media}
+          image="/images/placeholder-image.png"
+          title=""
+        />
+        <CardContent>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            className={classes.textArea}
+          >
+            {description}
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteTwoToneIcon color="primary" />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareTwoToneIcon color="primary" />
+          </IconButton>
+        </CardActions>
+      </Paper>
+    </Card>
   )
 }
 

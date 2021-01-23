@@ -24,8 +24,10 @@ const drawerWidth = 240
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawer: {
+      display: "flex",
       width: drawerWidth,
       flexShrink: 0,
+      position: "relative",
     },
     drawerPaper: {
       width: drawerWidth,
@@ -35,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerOverlay: {
       height: "100%",
+      position: "relative",
       zIndex: theme.zIndex.drawer + 1,
       backgroundColor: "rgba(187, 134, 252, 0.09)",
     },
