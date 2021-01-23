@@ -1,8 +1,7 @@
-import React from "react"
-import Link from "gatsby-link";
+import { navigate } from "gatsby"
 
 export default function Home() {
-    console.log("Rendering <Home>");
+  navigate("/Ads")
 
-    return <Link to={"/Ads"} color="white">Proceed</Link>
+  return null
 }
