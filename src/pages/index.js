@@ -1,7 +1,10 @@
-import { navigate } from "gatsby"
+import { Link } from "gatsby"
+import Container from "@material-ui/core/Container"
 
 export default function Home() {
-  navigate("/Ads")
-
-  return null
+  return (
+    <Container>
+      <Link to="/Ads" />
+    </Container>
+  )
 }
