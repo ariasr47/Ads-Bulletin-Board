@@ -43,12 +43,12 @@ const useStyles = makeStyles((theme: Theme) =>
 const NumericalSort = (props: any) => {
   return (
     <ButtonGroup aria-label="primary button group">
-      <Link to={"/DESC/1"}>
+      <Link to={"/Ads"}>
         <IconButton aria-label="filter">
           <Icon component={FaSortNumericDown} color={"primary"} />
         </IconButton>
       </Link>
-      <Link to={"/ASC/1"}>
+      <Link to={"/Ads"}>
         <IconButton aria-label="filter">
           <Icon component={FaSortNumericUp} color={"disabled"} />
         </IconButton>

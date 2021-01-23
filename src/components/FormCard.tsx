@@ -51,11 +51,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 type CardProps = {
   id: string
   title: string
+  category: string
   price: number
   description: string
 }
 
-const FormCard = ({ id, title, price, description }: CardProps) => {
+const FormCard = ({ id, title, category, price, description }: CardProps) => {
   console.log("Rendering <FormCard>")
   const classes = useStyles()
 
