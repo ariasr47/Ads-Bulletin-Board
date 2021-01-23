@@ -87,7 +87,7 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
             }
             title={title}
             titleTypographyProps={{ noWrap: true, className: classes.Title }}
-            subheader={"Electronics"}
+            subheader={category}
           />
           <CardMedia
             className={classes.media}
