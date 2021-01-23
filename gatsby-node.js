@@ -16,7 +16,7 @@ exports.createPages = async function ({ actions, graphql }) {
       const id = edge.node.id
       actions.createPage({
         path: `Ads/${id}`,
-        component: require.resolve(`./src/templates/Ad.js`),
+        component: require.resolve(`./src/templates/ad.js`),
         context: { id: id },
       })
     })
