@@ -17,6 +17,7 @@ export const query = graphql`
         strapiAd(id: {eq: $id}) {
             id
             title
+            category
             price
             description
         }

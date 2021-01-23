@@ -9,23 +9,13 @@ const BulletinBoard = ({ children }) => {
     <Grid container spacing={1} direction={"column"}>
       <FilterBar />
       <Grid item container spacing={1} direction="row">
-        {children.map(
-          (
-            props: {
-              id: string
-              title: string
-              price: number
-              description: string
-            },
-            index: React.ReactText
-          ) => {
-            return (
-              <Grid item>
-                <FormCard {...props} key={index} />
-              </Grid>
-            )
-          }
-        )}
+        {children.map((props, index) => {
+          return (
+            <Grid item>
+              <FormCard {...props} key={index} />
+            </Grid>
+          )
+        })}
       </Grid>
       <Pagination />
     </Grid>
