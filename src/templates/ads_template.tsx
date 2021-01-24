@@ -4,8 +4,8 @@ import { graphql } from "gatsby"
 import BulletinBoard from "../components/BulletinBoard"
 
 const AdTemplate = ({ data }) => {
-  const children = data.allStrapiAd.nodes
-  return <BulletinBoard>{children}</BulletinBoard>
+  const nodes = data.allStrapiAd.nodes
+  return <BulletinBoard nodes={nodes} />
 }
 
 export const query = graphql`

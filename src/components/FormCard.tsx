@@ -62,7 +62,7 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
 
   const handleClick = (e: React.MouseEvent) => {
     const path: string = window.location.pathname
-    if (path != `/Ads/${id}`) navigate(`/Ads/${id}`)
+    if (path == `/ads`) navigate(`/ad/${id}`)
   }
 
   return (

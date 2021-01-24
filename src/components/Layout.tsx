@@ -6,6 +6,8 @@ import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider, makeStyles, Theme } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 
+import "@fontsource/roboto"
+
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: "flex",
