@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }))
 
-type CardProps = {
+export type CardProps = {
   id: string
   title: string
   category: string

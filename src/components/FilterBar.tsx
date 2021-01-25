@@ -30,40 +30,37 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const NumericalSort = () => {
+const NumericalSort = ({ order }) => {
   console.log("Rendering <NumericalSort>")
-
-  const index = window.location.pathname == "/sorted/DESC/ads" ? 1 : 2
-  console.log(window.location.pathname)
 
   return (
     <ButtonGroup aria-label="primary button group">
       <IconButton
         onClick={() => {
-          if (index == 2) navigate("/sorted/DESC/ads")
+          if (order == "ASC") navigate("/sorted/DESC/ads")
         }}
       >
         <Icon
           component={FaSortNumericDown}
-          color={index == 1 ? "primary" : "disabled"}
+          color={order == "DESC" ? "primary" : "disabled"}
         />
       </IconButton>
 
       <IconButton
         onClick={() => {
-          if (index == 1) navigate("/sorted/ASC/ads")
+          if (order == "DESC") navigate("/sorted/ASC/ads")
         }}
       >
         <Icon
           component={FaSortNumericUp}
-          color={index == 2 ? "primary" : "disabled"}
+          color={order == "ASC" ? "primary" : "disabled"}
         />
       </IconButton>
     </ButtonGroup>
   )
 }
 
-const FilterBar = (props: any) => {
+const FilterBar = ({ order }) => {
   console.log("rendering <FilterBar>")
 
   const classes = useStyles()
@@ -91,7 +88,7 @@ const FilterBar = (props: any) => {
         </IconButton>
       </ButtonGroup>
       <Divider orientation="vertical" flexItem />
-      <NumericalSort />
+      <NumericalSort order={order} />
     </Box>
   )
 }
