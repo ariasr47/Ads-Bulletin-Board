@@ -10,7 +10,8 @@ exports.createPages = async function ({ actions, graphql }) {
 
   return Promise.all([
     createSingle(data, createPage),
-    createASC(data.length, createPage),
+    createOrdered(data.length, createPage, "ASC"),
+    createOrdered(data.length, createPage, "DESC"),
   ])
 }
 
@@ -26,15 +27,16 @@ const createSingle = async (data, createPage) => {
   })
 }
 
-const createASC = async (totalCount, createPage) => {
+const createOrdered = async (totalCount, createPage, order) => {
   const postsPerPage = 20
   const numPages = Math.ceil(totalCount / postsPerPage)
   const ads_template = require.resolve("./src/templates/ads_template.tsx")
   for (let i = 0; i < numPages; i++) {
     createPage({
-      path: i == 0 ? `/ads` : `/ads/${i + 1}`,
+      path: i == 0 ? `/sorted/${order}/ads` : `/sorted/${order}/ads${i + 1}`,
       component: ads_template,
       context: {
+        order: order,
         limit: postsPerPage,
         skip: i * postsPerPage,
         numPages: numPages,

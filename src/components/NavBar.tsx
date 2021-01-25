@@ -94,8 +94,6 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
-  const isMenuOpen = Boolean(anchorEl)
-
   const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }

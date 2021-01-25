@@ -41,9 +41,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 125,
   },
   cardOverlay: {
+    maxWidth: 290,
+    minWidth: 290,
+    maxHeight: 380,
+    minHeight: 380,
     position: "relative",
     zIndex: 2,
-    flexGrow: 1,
     backgroundColor: "rgba(187, 134, 252, 0.05)",
   },
 }))
@@ -56,13 +59,13 @@ type CardProps = {
   description: string
 }
 
-const FormCard = ({ id, title, category, price, description }: CardProps) => {
+const FormCard = (props: CardProps) => {
   console.log("Rendering <FormCard>")
   const classes = useStyles()
 
   const handleClick = (e: React.MouseEvent) => {
     const path: string = window.location.pathname
-    if (path == `/ads`) navigate(`/ad/${id}`)
+    if (path == `/sorted/ASC/ads`) navigate(`/ad/${props.id}`)
   }
 
   return (
@@ -73,7 +76,7 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
             <Chip
               color="primary"
               icon={<AttachMoneyRoundedIcon />}
-              label={price}
+              label={props.price}
             />
           }
           action={
@@ -81,9 +84,9 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
               <MoreVertTwoToneIcon color="primary" />
             </IconButton>
           }
-          title={title}
+          title={props.title}
           titleTypographyProps={{ noWrap: true, className: classes.Title }}
-          subheader={category}
+          subheader={props.category}
         />
         <CardMedia
           className={classes.media}
@@ -96,7 +99,7 @@ const FormCard = ({ id, title, category, price, description }: CardProps) => {
             color="textSecondary"
             className={classes.textArea}
           >
-            {description}
+            {props.description}
           </Typography>
         </CardContent>
         <CardActions disableSpacing>

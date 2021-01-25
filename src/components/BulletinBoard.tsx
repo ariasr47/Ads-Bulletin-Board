@@ -4,21 +4,24 @@ import FormCard from "./FormCard"
 import FilterBar from "./FilterBar"
 import Pagination from "./Pagination"
 
+const Container = props => <Grid container {...props} />
+const Item = props => <Grid item {...props} />
+
 const BulletinBoard = ({ nodes }) => {
   return (
-    <Grid container spacing={1} direction={"column"}>
-      <FilterBar />
-      <Grid item container spacing={1} direction="row">
-        {nodes.map((props, index) => {
-          return (
-            <Grid item>
-              <FormCard {...props} key={index} />
-            </Grid>
-          )
-        })}
-      </Grid>
-      <Pagination />
-    </Grid>
+    <Container spacing={1} direction={"row"}>
+      <Item xs={12}>
+        <FilterBar />
+      </Item>
+      {nodes.map(node => (
+        <Item>
+          <FormCard {...node} />
+        </Item>
+      ))}
+      <Item xs={12}>
+        <Pagination />
+      </Item>
+    </Container>
   )
 }
 

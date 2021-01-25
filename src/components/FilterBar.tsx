@@ -1,13 +1,6 @@
 // @ts-ignore
 import React from "react"
-import {
-  Box,
-  ButtonGroup,
-  Divider,
-  Grid,
-  Icon,
-  IconButton,
-} from "@material-ui/core"
+import { Box, ButtonGroup, Divider, Icon, IconButton } from "@material-ui/core"
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles"
 import { FaSortNumericDown } from "@react-icons/all-files/fa/FaSortNumericDown"
 import { FaSortNumericUp } from "@react-icons/all-files/fa/FaSortNumericUp"
@@ -16,7 +9,7 @@ import { FaEuroSign } from "@react-icons/all-files/fa/FaEuroSign"
 import { FaDollarSign } from "@react-icons/all-files/fa/FaDollarSign"
 import { FaList } from "@react-icons/all-files/fa/FaList"
 import { FaTh } from "@react-icons/all-files/fa/FaTh"
-import Link from "gatsby-link"
+import { Link, navigate } from "gatsby"
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,59 +27,72 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: theme.spacing(0, 0.3),
       },
     },
-    inactive: {
-      opacity: 0.45,
-    },
   })
 )
 
-const NumericalSort = (props: any) => {
+const NumericalSort = () => {
+  console.log("Rendering <NumericalSort>")
+
+  const index = window.location.pathname == "/sorted/DESC/ads" ? 1 : 2
+  console.log(window.location.pathname)
+
   return (
     <ButtonGroup aria-label="primary button group">
-      <IconButton aria-label="filter">
-        <Icon component={FaSortNumericDown} color={"primary"} />
+      <IconButton
+        onClick={() => {
+          if (index == 2) navigate("/sorted/DESC/ads")
+        }}
+      >
+        <Icon
+          component={FaSortNumericDown}
+          color={index == 1 ? "primary" : "disabled"}
+        />
       </IconButton>
-      <IconButton aria-label="filter">
-        <Icon component={FaSortNumericUp} color={"disabled"} />
+
+      <IconButton
+        onClick={() => {
+          if (index == 1) navigate("/sorted/ASC/ads")
+        }}
+      >
+        <Icon
+          component={FaSortNumericUp}
+          color={index == 2 ? "primary" : "disabled"}
+        />
       </IconButton>
     </ButtonGroup>
   )
 }
 
 const FilterBar = (props: any) => {
+  console.log("rendering <FilterBar>")
+
   const classes = useStyles()
 
   return (
-    <Grid item xs={12} spacing={1}>
-      <Box className={classes.root}>
-        <ButtonGroup aria-label="primary button group">
-          <IconButton aria-label="view list" disabled={true}>
-            <Icon
-              component={FaList}
-              color={"disabled"}
-              className={"inactive"}
-            />
-          </IconButton>
-          <IconButton aria-label="module">
-            <Icon component={FaTh} color={"primary"} />
-          </IconButton>
-        </ButtonGroup>
-        <Divider orientation="vertical" flexItem />
-        <ButtonGroup aria-label="outlined primary button group">
-          <IconButton aria-label="usd">
-            <Icon component={FaDollarSign} color={"primary"} />
-          </IconButton>
-          <IconButton aria-label="euro" disabled={true}>
-            <Icon component={FaEuroSign} color={"disabled"} />
-          </IconButton>
-          <IconButton disabled={true}>
-            <Icon component={FaYenSign} color={"disabled"} />
-          </IconButton>
-        </ButtonGroup>
-        <Divider orientation="vertical" flexItem />
-        <NumericalSort />
-      </Box>
-    </Grid>
+    <Box className={classes.root}>
+      <ButtonGroup aria-label="primary button group">
+        <IconButton aria-label="view list" disabled={true}>
+          <Icon component={FaList} color={"disabled"} />
+        </IconButton>
+        <IconButton aria-label="module">
+          <Icon component={FaTh} color={"primary"} />
+        </IconButton>
+      </ButtonGroup>
+      <Divider orientation="vertical" flexItem />
+      <ButtonGroup aria-label="outlined primary button group">
+        <IconButton aria-label="usd">
+          <Icon component={FaDollarSign} color={"primary"} />
+        </IconButton>
+        <IconButton aria-label="euro" disabled={true}>
+          <Icon component={FaEuroSign} color={"disabled"} />
+        </IconButton>
+        <IconButton disabled={true}>
+          <Icon component={FaYenSign} color={"disabled"} />
+        </IconButton>
+      </ButtonGroup>
+      <Divider orientation="vertical" flexItem />
+      <NumericalSort />
+    </Box>
   )
 }
 

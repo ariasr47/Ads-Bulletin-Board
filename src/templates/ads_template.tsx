@@ -3,22 +3,23 @@ import React from "react"
 import { graphql } from "gatsby"
 import BulletinBoard from "../components/BulletinBoard"
 
-const AdTemplate = ({ data }) => {
+const ads_template = ({ data }) => {
   const nodes = data.allStrapiAd.nodes
   return <BulletinBoard nodes={nodes} />
 }
 
 export const query = graphql`
-  query MyQuery1 {
-    allStrapiAd {
+  query MyQuery($order: [SortOrderEnum] = [ASC, DESC]) {
+    allStrapiAd(sort: { fields: price, order: $order }) {
       nodes {
         id
-        title
         price
+        title
         category
         description
       }
     }
   }
 `
-export default AdTemplate
+
+export default ads_template

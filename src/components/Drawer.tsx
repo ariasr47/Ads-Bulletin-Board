@@ -62,8 +62,7 @@ export default function MyDrawer() {
           <List>
             <ListItem button>
               <ListItemIcon>
-                {" "}
-                <DashboardIcon color={"primary"} />{" "}
+                <Icon component={DashboardIcon} color={"primary"} />
               </ListItemIcon>
               <ListItemText primary={"All Listings"} />
             </ListItem>
@@ -72,22 +71,19 @@ export default function MyDrawer() {
           <List>
             <ListItem button>
               <ListItemIcon>
-                {" "}
-                <Icon component={FaMicrochip} color={"disabled"} />{" "}
+                <Icon component={FaMicrochip} color={"disabled"} />
               </ListItemIcon>
               <ListItemText primary={"Electronics"} />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                {" "}
-                <Icon component={FaCarSide} color={"disabled"} />{" "}
+                <Icon component={FaCarSide} color={"disabled"} />
               </ListItemIcon>
               <ListItemText primary={"Vehicles"} />
             </ListItem>
             <ListItem button>
               <ListItemIcon>
-                {" "}
-                <Icon component={FaTshirt} color={"disabled"} />{" "}
+                <Icon component={FaTshirt} color={"disabled"} />
               </ListItemIcon>
               <ListItemText primary={"Fashion"} />
             </ListItem>
@@ -96,19 +92,17 @@ export default function MyDrawer() {
           <List>
             <ListItem button key={"Favorites"}>
               <ListItemIcon>
-                <Icon component={FaHeart} color="disabled" />{" "}
+                <Icon component={FaHeart} color="disabled" />
               </ListItemIcon>
               <ListItemText primary={"Favorites"} />
             </ListItem>
           </List>
         </div>
-        {
-          <Link to={"/Post"}>
-            <Fab color="secondary" aria-label="add">
-              <FaPlus />
-            </Fab>
-          </Link>
-        }
+        <Link to={"/Post"}>
+          <Fab color="secondary" aria-label="add">
+            <Icon component={FaPlus} />
+          </Fab>
+        </Link>
       </Paper>
     </Drawer>
   )
