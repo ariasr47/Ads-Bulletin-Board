@@ -37,7 +37,7 @@ const NumericalSort = ({ order }) => {
     <ButtonGroup aria-label="primary button group">
       <IconButton
         onClick={() => {
-          if (order == "ASC") navigate("/sorted/DESC/ads")
+          if (order == "ASC") navigate("/DESC/ads/")
         }}
       >
         <Icon
@@ -48,7 +48,7 @@ const NumericalSort = ({ order }) => {
 
       <IconButton
         onClick={() => {
-          if (order == "DESC") navigate("/sorted/ASC/ads")
+          if (order == "DESC") navigate("/ASC/ads/")
         }}
       >
         <Icon

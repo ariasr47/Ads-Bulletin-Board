@@ -64,8 +64,8 @@ const FormCard = (props: CardProps) => {
   const classes = useStyles()
 
   const handleClick = (e: React.MouseEvent) => {
-    const path: string = window.location.pathname
-    if (path == `/sorted/ASC/ads`) navigate(`/ad/${props.id}`)
+    const path = window.location.pathname
+    if (path != `/ad/${props.id}`) navigate(`/ad/${props.id}`)
   }
 
   return (
@@ -88,11 +88,7 @@ const FormCard = (props: CardProps) => {
           titleTypographyProps={{ noWrap: true, className: classes.Title }}
           subheader={props.category}
         />
-        <CardMedia
-          className={classes.media}
-          image="/images/placeholder-image.png"
-          title=""
-        />
+        <CardMedia className={classes.media} image="" title="" />
         <CardContent>
           <Typography
             variant="body2"

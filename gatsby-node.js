@@ -33,7 +33,7 @@ const createOrdered = async (totalCount, createPage, order) => {
   const ads_template = require.resolve("./src/templates/ads_template.tsx")
   for (let i = 0; i < numPages; i++) {
     createPage({
-      path: i == 0 ? `/sorted/${order}/ads` : `/sorted/${order}/ads${i + 1}`,
+      path: i == 0 ? `/${order}/ads/` : `/${order}/ads/${i + 1}`,
       component: ads_template,
       context: {
         order: order,

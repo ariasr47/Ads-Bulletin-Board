@@ -3,7 +3,7 @@ import { Link, navigate } from "gatsby"
 
 export default function Home() {
   useEffect(() => {
-    navigate("/sorted/DESC/ads")
+    navigate("/DESC/ads/")
   }, [])
   return null
 }
